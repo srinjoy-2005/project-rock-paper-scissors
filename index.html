@@ -10,9 +10,70 @@
         console.log("HEllo,world!");
         function getComputerChoice(){
             let randvalue =  3*Math.random(0);
-            console.log(randvalue);
+            // console.log(randvalue);
+            let ComputerChoice = 
+                (randvalue<1)?"rock":
+                (randvalue<2)?"paper":"scissors";
+            return ComputerChoice;
         }
-        getComputerChoice();
+        
+        function getHumanChoice(){
+            let userChoice = window.prompt("Enter user choice:\n");
+            return userChoice.toLowerCase();
+        }
+
+        // console.log(getHumanChoice());
+        let humanScore=0,computerScore=0;
+        
+        function playRound(h,c){
+            let win=(h,c)=>{
+                humanScore++;
+                return "You won! "+h+" beat "+c+".\n";
+            };
+            let lose=(h,c)=>{
+                computerScore++;
+                return "You lost! "+c+" beat "+h+".\n";
+            };
+
+            if (h==="rock"){
+                if (c==="paper"){
+                    return lose(h,c);
+                }else if (c==="scissors"){
+                    return win(h,c);
+                }else{
+                    return "Drwa!\n";
+                }
+            }else if (h==="paper"){
+                if (c==="rock"){
+                    return win(h,c);
+                }else if(c==="scissors"){
+                    return lose(h,c);
+                }else{
+                    return "Draw!\n";
+                }
+            }else{
+                if (c=="paper"){
+                    return win(h,c);
+                }else if (c==="rock"){
+                    return lose(h,c);
+                }else{
+                    return "Draw!\n";
+                }
+            }
+        }
+
+        for(let i=0;i<2;i++){
+            let c=getComputerChoice();
+            let h=getHumanChoice();
+            console.log("You chose "+h+"\n");
+            console.log("Computer chose "+c+"\n");
+            
+            console.log(playRound(h,c));
+        }
+        
+
+        let winner= computerScore<humanScore?"human":"computer";
+        alert("Winner is "+winner);
 
     </script>
 </body>
