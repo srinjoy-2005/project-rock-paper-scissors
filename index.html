@@ -4,77 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">   
 </head>
 <body>
-    <script>
-        console.log("HEllo,world!");
-        function getComputerChoice(){
-            let randvalue =  3*Math.random(0);
-            // console.log(randvalue);
-            let ComputerChoice = 
-                (randvalue<1)?"rock":
-                (randvalue<2)?"paper":"scissors";
-            return ComputerChoice;
-        }
-        
-        function getHumanChoice(){
-            let userChoice = window.prompt("Enter user choice:\n");
-            return userChoice.toLowerCase();
-        }
+    <div class="heading">Your Move!</div>
 
-        // console.log(getHumanChoice());
-        let humanScore=0,computerScore=0;
-        
-        function playRound(h,c){
-            let win=(h,c)=>{
-                humanScore++;
-                return "You won! "+h+" beat "+c+".\n";
-            };
-            let lose=(h,c)=>{
-                computerScore++;
-                return "You lost! "+c+" beat "+h+".\n";
-            };
+    <div class="container">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+    </div>
 
-            if (h==="rock"){
-                if (c==="paper"){
-                    return lose(h,c);
-                }else if (c==="scissors"){
-                    return win(h,c);
-                }else{
-                    return "Drwa!\n";
-                }
-            }else if (h==="paper"){
-                if (c==="rock"){
-                    return win(h,c);
-                }else if(c==="scissors"){
-                    return lose(h,c);
-                }else{
-                    return "Draw!\n";
-                }
-            }else{
-                if (c=="paper"){
-                    return win(h,c);
-                }else if (c==="rock"){
-                    return lose(h,c);
-                }else{
-                    return "Draw!\n";
-                }
-            }
-        }
+    <div class="result"></div>
 
-        for(let i=0;i<2;i++){
-            let c=getComputerChoice();
-            let h=getHumanChoice();
-            console.log("You chose "+h+"\n");
-            console.log("Computer chose "+c+"\n");
-            
-            console.log(playRound(h,c));
-        }
-        
-
-        let winner= computerScore<humanScore?"human":"computer";
-        alert("Winner is "+winner);
-
-    </script>
 </body>
 </html>

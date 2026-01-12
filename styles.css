@@ -1,0 +1,39 @@
+body{
+    height:100vh;
+    font-size: 36px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 100px;
+    flex-direction: column;
+}
+
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    
+}
+button{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    font-weight: 900;
+}
+
+.rock{
+    color:brown;
+    background-color:burlywood;
+}
+
+.paper{
+    color:black;
+    background-color: whitesmoke;
+}
+
+.scissors{
+    background-color: lightgreen;
+    color: darkblue;
+}
